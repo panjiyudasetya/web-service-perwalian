@@ -6,4 +6,4 @@ from perwalian.models import Perwalian
 
 class PerwalianListView(ListAPIView):
     serializer_class = PerwalianSerializer
-    queryset = Perwalian.objects.all()
+    queryset = Perwalian.objects.all().order_by('id')
