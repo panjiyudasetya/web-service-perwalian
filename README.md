@@ -2,6 +2,15 @@
 
 Proyek Web Service ini berbasis REST API menggunakan JSON sebagai response API-nya.
 
+Entitas Relasional Diagram terkait project ini dapat dilihat pada gambar berikut ini:
+
+![image](https://user-images.githubusercontent.com/21379421/201514531-dac78d7e-5f5b-417e-89c9-42f997849417.png)
+
+Adapun batasan masalah pada project ini adalah sebagai berikut:
+- Projek ini anya digunakan sebagai tugas studi, dan tidak memiliki persyaratan untuk menerapkan sistem autentikasi.
+- Dapat yang tersedia diakses oleh publik.
+- Web Service terbatas hanya untuk menangani `GET` request.
+
 ## Prerequisite
 
 ### Docker
