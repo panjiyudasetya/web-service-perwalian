@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
 
-# Create your views here.
+from dosen.models import Dosen
+from dosen.serializers import DosenSerializer
+
+
+class DosenListView(ListAPIView):
+    serializer_class = DosenSerializer
+    queryset = Dosen.objects.all().order_by('id')
