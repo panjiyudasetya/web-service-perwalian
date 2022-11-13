@@ -1,19 +1,18 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import CharField, ModelSerializer
 
 from mata_kuliah.serializers import MataKuliahSerializer
-from perwalian.serializers import PerwalianSerializer
 from rencana_studi.models import RencanaStudi
 
 
 class RencanaStudiSerializer(ModelSerializer):
-    perwalian = PerwalianSerializer()
+    kode_perwalian = CharField(source='perwalian.kode')
     mata_kuliah = MataKuliahSerializer()
 
     class Meta:
         model = RencanaStudi
         fields = (
             'id',
-            'perwalian',
+            'kode_perwalian',
             'mata_kuliah',
             'grade',
         )

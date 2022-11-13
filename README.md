@@ -34,3 +34,167 @@ $ docker-compose up --build
 ```
 $ docker-compose down --remove-orphans
 ```
+
+## API Design
+
+### Mengambil Data Mahasiswa
+```
+GET http://localhost:8080/mahasiswa/
+
+RESPONSE - 200
+[
+  {
+    "id": 1,
+    "nim": "11201",
+    "nama_depan": "Panji",
+    "nama_belakang": "Yudasetya Wiwaha",
+    "alamat": "Batu Indah Regency, Bandung Barat",
+    "tanggal_lahir": "2000-01-01",
+    "angkatan": 2022
+  },
+  {
+    "id": 2,
+    "nim": "11202",
+    "nama_depan": "Deni",
+    "nama_belakang": "Ramdani",
+    "alamat": "Bandung",
+    "tanggal_lahir": "2000-02-02",
+    "angkatan": 2022
+  }
+]
+```
+### Mengambil Data Dosen
+```
+GET http://localhost:8080/dosen/
+
+RESPONSE - 200
+[
+  {
+    "id": 1,
+    "nid": "DS019-21",
+    "nama_depan": "Chandra",
+    "nama_belakang": "Poernama, M.Sc., Ph.D.",
+    "alamat": "Bandung"
+  },
+  {
+    "id": 2,
+    "nid": "DS019-22",
+    "nama_depan": "Jeffry",
+    "nama_belakang": "Koesnaedi, M.Sc., Ph.D.",
+    "alamat": "Bandung"
+  }
+]
+```
+### Mengambil Data Mata Kuliah
+```
+GET http://localhost:8080/mata-kuliah/
+
+RESPONSE - 200
+[
+  {
+    "id": 1,
+    "kode": "WS_INTRO",
+    "dosen": {
+      "id": 1,
+      "nid": "DS019-21",
+      "nama_depan": "Chandra",
+      "nama_belakang": "Poernama, M.Sc., Ph.D.",
+      "alamat": "Bandung"
+    },
+    "nama": "Pengenalan Web Semantik",
+    "sks": 3
+  },
+  {
+    "id": 2,
+    "kode": "BIG_DATA",
+    "dosen": {
+      "id": 2,
+      "nid": "DS019-22",
+      "nama_depan": "Jeffry",
+      "nama_belakang": "Koesnaedi, M.Sc., Ph.D.",
+      "alamat": "Bandung"
+    },
+    "nama": "Pengolahan Data Berskala Besar",
+    "sks": 3
+  }
+]
+```
+### Mengambil Data Perwalian
+```
+GET http://localhost:8080/perwalian/
+
+RESPONSE - 200
+[
+  {
+    "id": 1,
+    "kode": "PW01-20",
+    "mahasiswa": {
+      "id": 1,
+      "nim": "11201",
+      "nama_depan": "Panji",
+      "nama_belakang": "Yudasetya Wiwaha",
+      "alamat": "Batu Indah Regency, Bandung Barat",
+      "tanggal_lahir": "2000-01-01",
+      "angkatan": 2022
+    },
+    "dosen": {
+      "id": 2,
+      "nid": "DS019-22",
+      "nama_depan": "Jeffry",
+      "nama_belakang": "Koesnaedi, M.Sc., Ph.D.",
+      "alamat": "Bandung"
+    },
+    "mulai_tahun_ajaran": 2022,
+    "akhir_tahun_ajaran": 2023,
+    "tanggal_perwalian": "2022-06-01",
+    "masalah": "",
+    "saran": ""
+  }
+]
+```
+### Mengambil Data Rencana Studi
+```
+GET http://localhost:8080/rencana-studi/
+
+RESPONSE - 200
+[
+  {
+    "id": 1,
+    "kode_perwalian": "PW01-20",
+    "mata_kuliah": {
+      "id": 2,
+      "kode": "BIG_DATA",
+      "dosen": {
+        "id": 2,
+        "nid": "DS019-22",
+        "nama_depan": "Jeffry",
+        "nama_belakang": "Koesnaedi, M.Sc., Ph.D.",
+        "alamat": "Bandung"
+      },
+      "nama": "Pengolahan Data Berskala Besar",
+      "sks": 3
+    },
+    "grade": null
+  },
+  {
+    "id": 2,
+    "kode_perwalian": "PW01-20",
+    "mata_kuliah": {
+      "id": 1,
+      "kode": "WS_INTRO",
+      "dosen": {
+        "id": 1,
+        "nid": "DS019-21",
+        "nama_depan": "Chandra",
+        "nama_belakang": "Poernama, M.Sc., Ph.D.",
+        "alamat": "Bandung"
+      },
+      "nama": "Pengenalan Web Semantik",
+      "sks": 3
+    },
+    "grade": null
+  }
+]
+```
+
+
