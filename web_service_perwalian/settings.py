@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mahasiswa',
     'dosen',
     'mata_kuliah',
+    'perwalian',
 ]
 
 MIDDLEWARE = [

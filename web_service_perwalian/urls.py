@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('mahasiswa.urls')),
     path('', include('dosen.urls')),
     path('', include('mata_kuliah.urls')),
+    path('', include('perwalian.urls')),
 ]
