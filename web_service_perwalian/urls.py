@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('dosen.urls')),
     path('', include('mata_kuliah.urls')),
     path('', include('perwalian.urls')),
+    path('', include('rencana_studi.urls')),
 ]
